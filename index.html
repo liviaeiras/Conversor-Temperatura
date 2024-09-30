@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Temperatura</h1>
+        <div class="converter">
+            <label for="temperatureInput">Insira a temperatura:</label>
+            <input type="number" id="temperatureInput" placeholder="Temperatura">
+            
+            <div class="buttons">
+                <button onclick="convertToFahrenheit()">Converter para Fahrenheit</button>
+                <button onclick="convertToCelsius()">Converter para Celsius</button>
+            </div>
+            
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function convertToFahrenheit() {
+            const celsius = document.getElementById('temperatureInput').value;
+            if (celsius !== "") {
+                const fahrenheit = (celsius * 9 / 5) + 32;
+                document.getElementById('result').innerHTML = `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                document.getElementById('result').innerHTML = "Por favor, insira uma temperatura.";
+            }
+        }
+
+        function convertToCelsius() {
+            const fahrenheit = document.getElementById('temperatureInput').value;
+            if (fahrenheit !== "") {
+                const celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById('result').innerHTML = `${fahrenheit}°F = ${celsius.toFixed(2)}°C`;
+            } else {
+                document.getElementById('result').innerHTML = "Por favor, insira uma temperatura.";
+            }
+        }
+    </script>
+</body>
+</html>
